@@ -39,7 +39,7 @@
                                                 <td>{{$user->phone}}</td>
                                                 <td>{{$user->start_work}}</td>
                                                 <td>{{$user->position}}</td>
-                                                <td>{{$user->user_types_id}}</td>
+                                                <td>{{$user->userType->name}}</td>
                                                 <td align="center"><button class="btn btn-primary">ประวัติการลา</button></td>
                                                 <td align="center"><a href="{{route('admin.delete',['user' => $user->id ])}}"><button type="button" class="btn btn-danger">ลบข้อมูล</button></a></td>
                                             </tr>

@@ -27,4 +27,8 @@ class User extends Authenticatable
 
 
     public $timestamps = false;
+
+    public  function userType(){
+        return $this->belongsTo(UserType::class,'user_types_id');
+    }
 }
