@@ -1,4 +1,4 @@
-@extends('layout-employee')
+@extends('layout')
 @section('content')
     <section class="wrapper">
         <br><h3><i class="fa fa-angle-right"></i> สถานะใบลา</h3>

@@ -7,27 +7,29 @@ use Illuminate\Support\Facades\Auth;
 
 class EmployeeController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
     public function edit(){
         $user = Auth::user();
         return view('employee.employee-edit',compact('user'));
     }
 
     public function save(){
-        return request()->all();
+        //return request()->all();
         $user =  Auth::user();
-        $user->update([
-            first_name => request('')
-        ]);
+        $user->update(request()->all());
+        return redirect(route('employee.index'));
     }
 
     public function index(){
-
-        return view('employee.employee-index');
+        $user = Auth::user();
+        return view('employee.employee-index',compact('user'));
     }
 
-    public function create(){
-        return view('employee.employee-create');
-    }
 
     public function store()
     {
@@ -58,5 +60,7 @@ class EmployeeController extends Controller
     public function roles(){
         return view('employee.employee-roles');
     }
+
+
 
 }

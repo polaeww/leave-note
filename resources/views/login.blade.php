@@ -5,9 +5,9 @@
     <title></title>
     <link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
-<body>
+<body style="background-color: ">
 <div class="container">
-    <img src="../img/pic3.jpg">
+    <img src="../assets/img/pic3.jpg">
     <form action="{{route('auth')}}" method="post">
         {{csrf_field()}}
         <div class="form-input">

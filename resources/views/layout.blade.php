@@ -41,7 +41,7 @@
 
         <div class="top-menu">
             <ul class="nav pull-right top-menu">
-                <li><a class="logout" href="login.html">Logout</a></li>
+                <li><a class="logout" href="{{route('logout')}}">Logout</a></li>
             </ul>
         </div>
     </header>
@@ -51,8 +51,8 @@
             <!-- sidebar menu start-->
             <ul class="sidebar-menu" id="nav-accordion">
 
-                <p class="centered"><a href="{{"admin.calendar"}}"><img width="60px" height="80px" src="../img/Picture.png"/></a></p>
-                <h5 class="centered">Marcel Newman</h5>
+                <p class="centered"><a href="{{route('employee.index')}}"><img width="60px" height="80px" src="../img/Picture.png"/></a></p>
+                <h5 class="centered">{{\Illuminate\Support\Facades\Auth::user()->first_name. ' ' .\Illuminate\Support\Facades\Auth::user()->last_name }}</h5>
                 <br>
 
                 <li class="sub-menu">
@@ -80,6 +80,34 @@
                     <a href="{{route("admin.sum")}}" >
                         <i class="fa fa-book"></i>
                         <span>พนักงานทั้งหมด</span>
+                    </a>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="{{route('employee.index')}}">
+                        <i class="fa fa-dashboard"></i>
+                        <span>โปรไฟล์</span>
+                    </a>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="{{route('leave.create')}}" >
+                        <i class="fa fa-cogs"></i>
+                        <span>สร้างใบลา</span>
+                    </a>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="{{route('employee.status')}}" >
+                        <i class="fa fa-cogs"></i>
+                        <span>สถานะใบลา</span>
+                    </a>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="{{route('employee.roles')}}" >
+                        <i class="fa fa-book"></i>
+                        <span>ระเบียบการลา</span>
                     </a>
                 </li>
             </ul>

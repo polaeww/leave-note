@@ -34,10 +34,11 @@ Route::get('/admin/calendar','AdminController@calendar')->name('admin.calendar')
 //Employee
 Route::get('/employee/edit','EmployeeController@edit')->name('employee.edit');
 Route::post('/employee/edit','EmployeeController@save')->name('employee.save');
+
 Route::get('/employee/index','EmployeeController@index')->name('employee.index');
 
-Route::get('/employee/create','EmployeeController@create')->name('employee.create');
-Route::post('/employee/create','AdminController@store')->name('employee.store');
+Route::get('/employee/create','LeaveController@create')->name('leave.create');
+Route::post('/employee/create','LeaveController@store')->name('leave.store');
 
 Route::get('/employee/status','EmployeeController@status')->name('employee.status');
 Route::get('/employee/roles','EmployeeController@roles')->name('employee.roles');

@@ -1,4 +1,4 @@
-@extends('layout-employee')
+@extends('layout')
 @section('content')
     <section class="wrapper">
         <br><h3><i class="fa fa-angle-right"></i> แก้ไขประวัติพนักงาน</h3>
@@ -19,7 +19,7 @@
                             </div>
                             <label class="col-sm-1 col-sm-1 control-label">นามสกุล :</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" value="{{$user->last_name}}" name="last_name">
                             </div>
                             <div class="col-sm-1 col-sm-1"></div>
                         </div>
@@ -28,7 +28,7 @@
                             <div class="col-sm-1"></div>
                             <label class="col-sm-1 col-sm-1 control-label">ชื่อเล่น :</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" value="{{$user->nick_name}}" name="nick_name">
                             </div>
                         </div>
 
@@ -36,7 +36,7 @@
                             <div class="col-sm-1"></div>
                             <label class="col-sm-1 col-sm-1 control-label">ตำแหน่งงาน :</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" value="{{$user->position}}" name="position">
                             </div>
                         </div>
 
@@ -44,7 +44,7 @@
                             <div class="col-sm-1"></div>
                             <label class="col-sm-1 col-sm-1 control-label">เบอร์โทรศัพท์:</label>
                             <div class="col-sm-4">
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" value="{{$user->phone}}" name="phone">
                             </div>
                         </div>
 
@@ -52,15 +52,7 @@
                             <div class="col-sm-1"></div>
                             <label class="col-sm-1 col-sm-1 control-label">อีเมล :</label>
                             <div class="col-sm-4">
-                                <input type="email" class="form-control">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-sm-1"></div>
-                            <label class="col-sm-1 col-sm-1 control-label">วันที่เข้าทำงาน:</label>
-                            <div class="col-sm-4">
-                                <input type="email" class="form-control">
+                                <input type="email" class="form-control" value="{{$user->email}}" name="email">
                             </div>
                         </div>
 

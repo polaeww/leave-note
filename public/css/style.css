@@ -1,0 +1,54 @@
+body{
+    margin: 0 auto;
+    background-image: url("../img/pic2.jpg");
+    background-size: 500px;
+}
+.container{
+    width: 500px;
+    height: 370px;
+    text-align: center;
+    background-color: rgba(52, 73, 94,0.9);
+    border-radius: 4px;
+    margin: 0 auto;
+    margin-top: 150px;
+}
+.container img{
+    width: 130px;
+    height: 130px;
+    margin-top: -60px;
+    margin-bottom: 30px;
+    border-radius: 50%;
+}
+input[type="text"],[type="password"]{
+    height: 35px;
+    width: 280px;
+    font-size: 14px;
+    padding-left: 40px;
+    border: none;
+    margin-bottom: 18px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+.form-input::before{
+    content: url("../img/user.png");
+    position: absolute;
+    padding-left: 10px;
+    padding-top: 1px;
+    font-size: 35px;
+}
+.form-input:nth-child(2)::before{
+    content: url("../img/lockk.png");
+}
+.btn-login{
+    padding: 15px 30px;
+    color: white;
+    border: none;
+    background-color: #2ECC71;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+a{
+    color: #ffffff;
+    margin-right: 10px;
+    margin-left: 10px;
+}
