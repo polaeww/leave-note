@@ -30,7 +30,6 @@ class EmployeeController extends Controller
         return view('employee.employee-index',compact('user'));
     }
 
-
     public function store()
     {
         //  return request()->all();

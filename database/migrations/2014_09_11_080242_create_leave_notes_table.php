@@ -19,6 +19,7 @@ class CreateLeaveNotesTable extends Migration
             $table->dateTime('end_at');
             $table->integer('total_house');
             $table->string('reason');
+            $table->string('note');
             $table->date('approve_date');
             $table->string('approve_by');
             $table->string('approve_reason');
