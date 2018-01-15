@@ -32,7 +32,6 @@
                             </div>
                         </div>
 
-                        <!--ตำแหน่ง-->
                         <div class="form-group">
                             <div class="col-sm-1"></div>
                             <label class="col-sm-1 col-sm-1 control-label">อีเมล :</label>
@@ -47,7 +46,6 @@
                             <div class="col-sm-1"></div>
                         </div>
 
-                        <!--อีเมล-->
                         <div class="form-group">
                             <div class="col-sm-1"></div>
                             <label class="col-sm-1 col-sm-1 control-label">ตำแหน่งงาน :</label>

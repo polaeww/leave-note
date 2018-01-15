@@ -8,7 +8,8 @@
                 <div class="form-panel">
                     <br>
 
-                    <form class="form-horizontal style-form" action="{{route('leave.create')}}" method="post">
+                    <form class="form-horizontal style-form" action="{{route('leave.store')}}" method="post">
+                        {{csrf_field()}}
                         <div class="form-group">
                             <div class="col-sm-1"></div>
                             <label class="col-sm-1 col-sm-1 control-label">ประเภทใบลา:</label>
@@ -29,6 +30,7 @@
                             </div>
                             <div class="col-sm-1 col-sm-1"></div>
                         </div>
+
                         <!--ชืื่อ-->
                         <div class="form-group">
 
@@ -49,12 +51,12 @@
                             <div class="col-sm-1"></div>
                             <label class="col-sm-1 col-sm-2 control-label">ลาตั้งแต่วันที่:</label>
                             <div class="col-sm-2">
-                                <input type="time" class="form-control" name="start_at">
+                                <input type="date" class="form-control" name="start_at">
                             </div>
                             <!--ถึงเวลา-->
-                            <label class="col-sm-1 col-sm-0 control-label">ถึงวันที่:</label>
-                            <div class="col-sm-3">
-                                <input type="time" class="form-control" name="end_at">
+                            <label class="col-sm-1 col-sm-2 control-label">ถึงวันที่:</label>
+                            <div class="col-sm-2">
+                                <input type="date" class="form-control" name="end_at">
                             </div>
                         </div>
 
@@ -66,30 +68,19 @@
                                 <input type="time" class="form-control" name="start_at">
                             </div>
                             <!--ถึงเวลา-->
-                            <label class="col-sm-1 col-sm-0 control-label">ถึงเวลา:</label>
-                            <div class="col-sm-3">
+                            <label class="col-sm-1 col-sm-2 control-label">ถึงเวลา:</label>
+                            <div class="col-sm-2">
                                 <input type="time" class="form-control" name="end_at">
                             </div>
                         </div>
 
-                        <!--อีเมล-->
                         <div class="form-group">
                             <div class="col-sm-1"></div>
                             <label class="col-sm-1 col-sm-1 control-label">รวมเป็นเวลา:</label>
                             <div class="col-sm-2">
-                                <input type="text" class="form-control" >
-                            </div>
-                            <label class="col-sm-1 col-sm-0 control-label"></label>
-                            <div class="col-sm-2">
-                                <input type="text" class="form-control">
-                            </div>
-                            <label class="col-sm-1 col-sm-0 control-label"></label>
-                            <div class="col-sm-2">
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" name="total_house">
                             </div>
                         </div>
-
-                    </form>
 
                     <div class="row mt">
                         <div class="col-lg-12">
@@ -106,39 +97,34 @@
                                         <tbody>
                                         <tr>
                                             <td>
-                                                <form action="">
-                                                    <input type="radio" name="leave" value="sick" style="margin-right: 10px">ลาป่วย
-                                                    <input type="radio" name="leave" value="take-leave" style="margin-right: 10px;margin-left: 10px">ลากิจ
-                                                    <input type="radio" name="leave" value="vacation" style="margin-right: 10px;margin-left: 10px">ลาพักผ่อน
-                                                </form>
+                                                    <input type="radio" name="leave_type_id" value="sick" style="margin-right: 10px">ลาป่วย
+                                                    <input type="radio" name="leave_type_id" value="take-leave" style="margin-right: 10px;margin-left: 10px">ลากิจ
+                                                    <input type="radio" name="leave_type_id" value="vacation" style="margin-right: 10px;margin-left: 10px">ลาพักผ่อน
 
                                             </td>
-                                            <td data-title="เหตุผลการลา"> <input type="text" class="form-control"></td>
-                                            <td data-title="เหตุผลการลา"> <input type="text" class="form-control"> </td>
+                                            <td data-title="เหตุผลการลา"> <input type="text" class="form-control" name="reason" value="reason"></td>
+                                            <td data-title="หมายเหตุ"> <input type="text" class="form-control" name="note" value="note"> </td>
                                         </tr>
                                         </tbody>
                                     </table>
                                     <div class="row mt">
                                         <div class="col-sm-1"></div>
-                                        <label class="col-sm-1 col-sm-2 control-label">เอกสารประกอบ:</label>
-                                        <div class="col-sm-4">
-                                            <input type="text" class="form-control">
-                                        </div>
+                                        <label class="col-sm-2 col-sm-2 control-label">เอกสารประกอบ:</label>
                                         <div class="col-sm-2">
                                             <input type="file" class="form-control">
                                         </div>
                                     </div>
                                     <br>
                                     <div class="container">
-                                        <div class="row">
+                                        <div class="row" align="center">
                                             <div class="col-md-10 col-lg-9"></div>
-                                            <div class="col-md-2 col-lg-3">ลงชื่อ................................ผู้ลา</div>
+                                            <div class="col-md-2 col-lg-3">ลงชื่อ........{{\Illuminate\Support\Facades\Auth::user()->first_name. '..' .\Illuminate\Support\Facades\Auth::user()->last_name }}........ผู้ลา</div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row" align="center">
                                             <div class="col-md-10 col-lg-9"></div>
-                                            <div class="col-md-2 col-lg-3">( นางสาวณัฐพร  ตั้งแต่ง )</div>
+                                            <div class="col-md-2 col-lg-3">( {{\Illuminate\Support\Facades\Auth::user()->first_name. ' ' .\Illuminate\Support\Facades\Auth::user()->last_name }} )</div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row" align="center">
                                             <div class="col-md-10 col-lg-9"></div>
                                             <div class="col-md-2 col-lg-3"><input type="date"></div>
                                         </div>
@@ -216,6 +202,8 @@
                             </div>
                         </div>
                     </div>
+                        <input type="submit" name="submit"class="btn btn-success">
+                    </form>
                 </div>
             </div>
         </div>
