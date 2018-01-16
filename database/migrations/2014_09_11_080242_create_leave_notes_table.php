@@ -21,10 +21,11 @@ class CreateLeaveNotesTable extends Migration
             $table->time('time_end')->nullable();
             $table->integer('total_hour');
             $table->string('reason');
-            $table->string('note');
-            $table->date('approve_date');
-            $table->string('approve_by');
-            $table->string('approve_reason');
+            $table->string('note')->nullable();
+            $table->string('document')->nullable();
+            $table->date('approve_date')->nullable();
+            $table->string('approve_by')->nullable();
+            $table->string('approve_reason')->nullable();
             $table->integer('leave_types_id')->unsigned();
             $table->integer('users_id')->unsigned();
             $table->integer('leave_lengths_id')->unsigned();

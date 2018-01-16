@@ -51,7 +51,7 @@
             <!-- sidebar menu start-->
             <ul class="sidebar-menu" id="nav-accordion">
 
-                <p class="centered"><a href="{{route('employee.index')}}"><img width="60px" height="80px" src="../img/Picture.png"/></a></p>
+                <p class="centered"><a href="{{route('employee.index')}}"><img width="60px" height="80px" src="../assets/img/Picture.png"/></a></p>
                 <h5 class="centered">{{\Illuminate\Support\Facades\Auth::user()->first_name. ' ' .\Illuminate\Support\Facades\Auth::user()->last_name }}</h5>
                 <br>
 
