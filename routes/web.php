@@ -37,8 +37,8 @@ Route::post('/employee/edit','EmployeeController@save')->name('employee.save');
 
 Route::get('/employee/index','EmployeeController@index')->name('employee.index');
 
-Route::get('/employee/create','LeaveController@create')->name('leave.create');
-Route::post('/employee/create','LeaveController@store')->name('leave.store');
+Route::get('/leave/create','LeaveController@create')->name('leave.create');
+Route::post('/leave/create','LeaveController@store')->name('leave.store');
 
 Route::get('/employee/status','EmployeeController@status')->name('employee.status');
 Route::get('/employee/roles','EmployeeController@roles')->name('employee.roles');

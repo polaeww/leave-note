@@ -15,9 +15,11 @@ class CreateLeaveNotesTable extends Migration
     {
         Schema::create('leave_notes', function (Blueprint $table) {
             $table->increments('id');
-            $table->dateTime('start_at');
-            $table->dateTime('end_at');
-            $table->integer('total_house');
+            $table->date('date_start');
+            $table->date('date_end');
+            $table->time('time_start')->nullable();
+            $table->time('time_end')->nullable();
+            $table->integer('total_hour');
             $table->string('reason');
             $table->string('note');
             $table->date('approve_date');
