@@ -35,8 +35,7 @@
                                             <td>
                                                 <div class="btn-group">
                                                     <form action="">
-                                                        <input type="radio" name="approve" value="approve" style="margin-right: 10px">อนุมัติ
-                                                        <input type="radio" name="unapprove" value="unapprove" style="margin-right: 10px;margin-left: 10px">ไม่อนุมัติ
+                                                        อนุมัติ
                                                     </form>
                                                 </div>
                                             </td>
@@ -50,7 +49,8 @@
                                             <td>
                                                 <div class="btn-group">
                                                     <form action="">
-                                                        ไม่อนุมัติ
+                                                        <input type="radio" name="approve" value="approve" style="margin-right: 10px">อนุมัติ
+                                                        <input type="radio" name="unapprove" value="unapprove" style="margin-right: 10px;margin-left: 10px">ไม่อนุมัติ
                                                     </form>
                                                 </div>
                                             </td>
@@ -71,4 +71,4 @@
             </div>
         </div>
     </section>
-    @endsection
+@endsection

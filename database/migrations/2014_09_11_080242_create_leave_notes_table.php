@@ -23,12 +23,16 @@ class CreateLeaveNotesTable extends Migration
             $table->string('reason');
             $table->string('note')->nullable();
             $table->string('document')->nullable();
-            $table->date('approve_date')->nullable();
-            $table->string('approve_by')->nullable();
-            $table->string('approve_reason')->nullable();
+            $table->string('admin_approve')->nullable();
+            $table->string('admin_reason')->nullable();
+            $table->string('leader_approve')->nullable();
+            $table->string('leader_reason')->nullable();
+            $table->string('director_approve')->nullable();
+            $table->string('director_reason')->nullable();
             $table->integer('leave_types_id')->unsigned();
             $table->integer('users_id')->unsigned();
             $table->integer('leave_lengths_id')->unsigned();
+            $table->integer('approvements_id')->unsigned();
             $table->timestamps();
         });
 
@@ -42,6 +46,10 @@ class CreateLeaveNotesTable extends Migration
 
         Schema::table('leave_notes', function($table) {
             $table->foreign('leave_lengths_id')->references('id')->on('leave_lengths');
+        });
+
+        Schema::table('leave_notes', function($table) {
+            $table->foreign('approvements_id')->references('id')->on('approvements');
         });
 
     }

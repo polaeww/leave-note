@@ -7,9 +7,9 @@
             <div class="col-lg-12">
                 <div class="form-panel">
                     <br>
-
                     <form class="form-horizontal style-form" action="{{route('leave.save')}}" method="post">
                         {{csrf_field()}}
+                        <input type="hidden" name="leave_id" value="{{$leave->id}}">
                         <div class="form-group">
                             <div class="col-sm-1"></div>
                             <label class="col-sm-1 col-sm-1 control-label">ประเภทใบลา:</label>
@@ -102,7 +102,7 @@
                                                     <input type="radio" name="leave_type_id" value="3" style="margin-right: 10px;margin-left: 10px">ลาพักผ่อน
 
                                                 </td>
-                                                <td data-title="เหตุผลการลา"> <input type="text" class="form-control" name="reason"></td>
+                                                <td data-title="เหตุผลการลา"> <input type="text" class="form-control" name="reason" value="{{$leave->reason}}"></td>
                                                 <td data-title="หมายเหตุ"> <input type="text" class="form-control" name="note"> </td>
                                             </tr>
                                             </tbody>

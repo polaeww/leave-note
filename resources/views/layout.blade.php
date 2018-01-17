@@ -65,7 +65,21 @@
                 <li class="sub-menu">
                     <a href="{{route("admin.approve")}}" >
                         <i class="fa fa-cogs"></i>
-                        <span>อนุมัติการลา</span>
+                        <span>อนุมัติการลาโดย admin</span>
+                    </a>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="{{route("leader.approve")}}" >
+                        <i class="fa fa-cogs"></i>
+                        <span>อนุมัติการลาโดย leader</span>
+                    </a>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="{{route("director.approve")}}" >
+                        <i class="fa fa-cogs"></i>
+                        <span>อนุมัติการลาโดย director</span>
                     </a>
                 </li>
 

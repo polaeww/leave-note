@@ -15,15 +15,10 @@ class CreateApprovementsTable extends Migration
     {
         Schema::create('approvements', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('reason');
-            $table->string('approved');
-            $table->integer('leave_notes_id')->unsigned();
+            $table->string('label');
             $table->timestamps();
         });
 
-        Schema::table('approvements', function($table) {
-            $table->foreign('leave_notes_id')->references('id')->on('leave_notes');
-        });
     }
 
     /**
