@@ -15,7 +15,10 @@ class CreateQuotasTable extends Migration
     {
         Schema::create('quotas', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('label');
+            $table->integer('employee_type_id')->unsigned();
+            $table->foreign('employee_type_id')->references('id')->on('employee_types');
+            $table->integer('worked_year');
+            $table->string('gender');
             $table->integer('sick_leave');
             $table->integer('business_leave');
             $table->integer('vacation_leave');

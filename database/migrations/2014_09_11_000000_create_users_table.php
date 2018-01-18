@@ -13,6 +13,7 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
+
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('email')->unique();
@@ -21,22 +22,15 @@ class CreateUsersTable extends Migration
             $table->string('last_name');
             $table->string('nick_name');
             $table->string('position');
-            $table->string('status');
             $table->date('start_work');
             $table->string('gender');
             $table->string('phone');
-            $table->integer('quotas_id')->unsigned();
             $table->integer('user_types_id')->unsigned();
+            $table->foreign('user_types_id')->references('id')->on('user_types');
+            $table->integer('employee_type_id')->unsigned();
+            $table->foreign('employee_type_id')->references('id')->on('employee_types');
             $table->rememberToken();
             $table->timestamps();
-        });
-
-        Schema::table('users', function($table) {
-            $table->foreign('user_types_id')->references('id')->on('user_types');
-        });
-
-        Schema::table('users', function($table) {
-            $table->foreign('quotas_id')->references('id')->on('quotas');
         });
     }
 
