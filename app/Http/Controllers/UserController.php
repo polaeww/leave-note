@@ -7,13 +7,14 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    public function login(){
+    public function login()
+    {
         return view('login');
     }
 
-    public function auth(){
+    public function auth()
+    {
         if (Auth::attempt(['email' => request('email'), 'password' => request('password')])) {
-            // Authentication passed...
             return redirect()->intended(route('employee.index'));
         }
 
@@ -21,7 +22,8 @@ class UserController extends Controller
 
     }
 
-    public function logout(){
+    public function logout()
+    {
         Auth::logout();
         return redirect()->route('login');
     }

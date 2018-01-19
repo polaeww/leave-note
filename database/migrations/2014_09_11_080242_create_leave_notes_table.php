@@ -20,37 +20,43 @@ class CreateLeaveNotesTable extends Migration
             $table->time('time_start')->nullable();
             $table->time('time_end')->nullable();
             $table->integer('total_hour');
-            $table->string('reason');
+            $table->string('reason')->nullable();
             $table->string('note')->nullable();
             $table->string('document')->nullable();
-            $table->string('admin_approve')->nullable();
+
+            $table->string('admin_id')->nullable();
             $table->string('admin_reason')->nullable();
-            $table->string('leader_approve')->nullable();
+            $table->boolean('admin_approved')->nullable();
+
+            $table->string('leader_id')->nullable();
             $table->string('leader_reason')->nullable();
-            $table->string('director_approve')->nullable();
+            $table->boolean('leader_approved')->nullable();
+
+            $table->string('director_id')->nullable();
             $table->string('director_reason')->nullable();
-            $table->integer('leave_types_id')->unsigned();
+            $table->boolean('director_approved')->nullable();
+
+            $table->integer('leave_type_id')->unsigned();
             $table->integer('users_id')->unsigned();
-            $table->integer('leave_lengths_id')->unsigned();
-            $table->integer('approvements_id')->unsigned();
+            $table->integer('leave_length_type_id')->unsigned();
             $table->timestamps();
         });
 
-        Schema::table('leave_notes', function($table) {
-            $table->foreign('leave_types_id')->references('id')->on('leave_types');
+        Schema::table('leave_notes', function ($table) {
+            $table->foreign('leave_type_id')->references('id')->on('leave_types');
         });
 
-        Schema::table('leave_notes', function($table) {
+        Schema::table('leave_notes', function ($table) {
             $table->foreign('users_id')->references('id')->on('users');
         });
 
-        Schema::table('leave_notes', function($table) {
-            $table->foreign('leave_lengths_id')->references('id')->on('leave_lengths');
+        Schema::table('leave_notes', function ($table) {
+            $table->foreign('leave_length_type_id')->references('id')->on('leave_length_types');
         });
 
-        Schema::table('leave_notes', function($table) {
-            $table->foreign('approvements_id')->references('id')->on('approvements');
-        });
+        // Schema::table('leave_notes', function ($table) {
+        //     $table->foreign('approvements_id')->references('id')->on('approvements');
+        // });
 
     }
 

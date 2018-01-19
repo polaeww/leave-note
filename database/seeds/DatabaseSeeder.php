@@ -5,6 +5,8 @@ use App\User;
 use App\UserType;
 use \App\Quota;
 use App\EmployeeType;
+use App\LeaveType;
+use App\LeaveLengthType;
 
 class DatabaseSeeder extends Seeder
 {
@@ -40,15 +42,15 @@ class DatabaseSeeder extends Seeder
          */
 
         $full_time_employee = EmployeeType::create([
-            'name' => 'Full-time'
+            'name' => 'พนักงานประจำ'
         ]);
 
         $trainee_employee = EmployeeType::create([
-            'name' => 'Trainee'
+            'name' => 'พนักงานทดลองงาน'
         ]);
 
         $intership_employee = EmployeeType::create([
-            'name' => 'Internship Student'
+            'name' => 'นักศึกษาฝึกงาน'
         ]);
 
 
@@ -85,5 +87,45 @@ class DatabaseSeeder extends Seeder
             'phone' => '0920922721',
             'user_types_id' => $employee->id,
         ]);
+
+
+        /*
+          Leave Length Type
+         */
+
+        LeaveLengthType::create([
+            'name' => 'ลาในเวลางาน'
+        ]);
+
+        LeaveLengthType::create([
+            'name' => 'ลาในเวลาปกติ'
+        ]);
+
+
+        /*
+          Leave Type
+         */
+
+        LeaveType::create([
+            'name' => 'ลาป่วย'
+        ]);
+
+        LeaveType::create([
+            'name' => 'ลากิจ'
+        ]);
+
+        LeaveType::create([
+            'name' => 'ลาพักร้อน'
+        ]);
+
+        LeaveType::create([
+            'name' => 'ลาคลอด'
+        ]);
+
+        LeaveType::create([
+            'name' => 'ลาบวช'
+        ]);
+
+
     }
 }

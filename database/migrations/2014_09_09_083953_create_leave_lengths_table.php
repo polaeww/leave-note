@@ -13,7 +13,7 @@ class CreateLeaveLengthsTable extends Migration
      */
     public function up()
     {
-        Schema::create('leave_lengths', function (Blueprint $table) {
+        Schema::create('leave_length_types', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->timestamps();

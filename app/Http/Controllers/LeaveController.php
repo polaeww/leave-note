@@ -3,43 +3,44 @@
 namespace App\Http\Controllers;
 
 use App\LeaveNote;
+use App\LeaveType;
+use App\LeaveLengthType;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class LeaveController extends Controller
 {
-    public function layout(){
+    public function layout()
+    {
         return view('layout');
     }
 
-    public function create(){
+    public function create()
+    {
         $user = Auth::user();
-        return view('employee.employee-create',compact('user'));
+        $leave_types = LeaveType::all();
+        $leave_length_types = LeaveLengthType::all();
+
+        return view('employee.employee-create', compact('user', 'leave_types', 'leave_length_types'));
     }
 
     public function store()
     {
-//        return request()->all();
+        //return request()->all();
         LeaveNote::create([
             'date_start' => request('date_start'),
             'date_end' => request('date_end'),
             'time_start' => request('time_start'),
             'time_end' => request('time_end'),
-            "total_hour" => request('total_hour'),
+            "total_hour" => 20,
             "reason" => request('reason'),
             "note" => request('note'),
             "document" => request('document'),
-            "admin_approve" => request('admin_approve'),
-            "admin_reason" => request('admin_reason'),
-            "leader_approve" => request('leader_approve'),
-            "leader_reason" => request('leader_reason'),
-            "director_approve" => request('director_approve'),
-            "director_reason" => request('director_reason'),
-            "leave_types_id" => 1,
-            "users_id" => 1,
-            "leave_lengths_id" => 1,
-            "approvements_id" => 1,
+            "leave_type_id" => request('leave_type_id'),
+            "users_id" => Auth::user()->id,
+            "leave_length_type_id" => request('leave_length_type_id'),
         ]);
 
         return redirect(route('leave.create'));
@@ -48,22 +49,27 @@ class LeaveController extends Controller
     public function edit(LeaveNote $leave)
     {
         $user = Auth::user();
-        return view('employee.leave-edit',compact('leave','user'));
+
+        $leave_types = LeaveType::all();
+        $leave_length_types = LeaveLengthType::all();
+
+        return view('employee.leave-edit', compact('leave', 'user', 'leave_types', 'leave_length_types'));
     }
 
-    public function save()
+    public function save(LeaveNote $leave)
     {
-        $leave = LeaveNote::find(request('leave_id'));
-        $leave->date_start = request('date_start');
-        $leave->date_end = request('date_end');
-        $leave->time_start = request('time_start');
-        $leave->time_end = request('time_end');
-        $leave->total_hour = request('total_hour');
-        $leave->reason = request('reason');
-        $leave->note = request('note');
-        $leave->document = request('document');
+        $leave->update(request()->all());
+        // $leave = LeaveNote::find(request('leave_id'));
+        // $leave->date_start = request('date_start');
+        // $leave->date_end = request('date_end');
+        // $leave->time_start = request('time_start');
+        // $leave->time_end = request('time_end');
+        // $leave->total_hour = request('total_hour');
+        // $leave->reason = request('reason');
+        // $leave->note = request('note');
+        // $leave->document = request('document');
 
-        $leave->save();
+        // $leave->save();
 //        $leave->update(request()->all());
         return redirect(route('employee.status'));
     }
