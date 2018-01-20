@@ -26,15 +26,15 @@ class CreateLeaveNotesTable extends Migration
 
             $table->string('admin_id')->nullable();
             $table->string('admin_reason')->nullable();
-            $table->boolean('admin_approved')->nullable();
+            $table->boolean('admin_approved')->default(false);
 
             $table->string('leader_id')->nullable();
             $table->string('leader_reason')->nullable();
-            $table->boolean('leader_approved')->nullable();
+            $table->boolean('leader_approved')->default(false);
 
             $table->string('director_id')->nullable();
             $table->string('director_reason')->nullable();
-            $table->boolean('director_approved')->nullable();
+            $table->boolean('director_approved')->default(false);
 
             $table->integer('leave_type_id')->unsigned();
             $table->integer('users_id')->unsigned();

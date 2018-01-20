@@ -1,17 +1,17 @@
-@extends('layout')
+@extends('layout') 
 @section('content')
-    <section class="wrapper">
-        <br><h3><i class="fa fa-angle-right"></i> สถานะใบลา</h3>
-
-        <div class="row mt">
-            <div class="col-lg-12">
-                <div class="form-panel">
-                    <div class="row mt">
-                        <div class="col-lg-12">
-                            <div class="content-panel">
-                                <section id="no-more-tables">
-                                    <table class="table table-bordered table-striped table-condensed cf">
-                                        <thead class="cf">
+<section class="wrapper">
+    <br>
+    <h3><i class="fa fa-angle-right"></i> สถานะใบลา</h3>
+    <div class="row mt">
+        <div class="col-lg-12">
+            <div class="form-panel">
+                <div class="row mt">
+                    <div class="col-lg-12">
+                        <div class="content-panel">
+                            <section id="no-more-tables">
+                                <table class="table table-bordered table-striped table-condensed cf">
+                                    <thead class="cf">
                                         <tr>
                                             <th class="text-center">วันที่ลา</th>
                                             <th class="text-center">เหตุผลการลา</th>
@@ -22,28 +22,28 @@
                                             <th></th>
                                             <th></th>
                                         </tr>
-                                        </thead>
-                                        <tbody>
+                                    </thead>
+                                    <tbody>
                                         @foreach($leaves as $leave)
                                         <tr>
                                             <td data-title="วันที่">12/12/2560</td>
                                             <td data-title="เหตุผล">ป่วย</td>
                                             <td data-title="ประเภทใบลา">ลากิจ</td>
-                                            <td data-title="อนุมัติโดย Admin">อนุมัติ</td>
-                                            <td data-title="อนุมัติโดย Leader">ไม่อนุมัติ</td>
-                                            <td data-title="อนุมัติโดย Director">ไม่อนุมัติ</td>
+                                            <td data-title="อนุมัติโดย Admin">{{$leave->admin_approved}}</td>
+                                            <td data-title="อนุมัติโดย Leader">{{$leave->leader_approved}}</td>
+                                            <td data-title="อนุมัติโดย Director">{{$leave->director_approved}}</td>
                                             <td data-title="เรียกดู" align="center"><button type="button" class="btn btn-info  btn-md ">ดูใบลา</button></td>
-                                            <td data-title="แก้ไขใบลา" align="center"><a href="{{route('leave.edit',['leave' => $leave])}}" ><button type="button" class="btn btn-primary  btn-md ">แก้ไขใบลา</button></a></td>
+                                            <td data-title="แก้ไขใบลา" align="center"><a href="{{route('leave.edit',['leave' => $leave])}}"><button type="button" class="btn btn-primary  btn-md ">แก้ไขใบลา</button></a></td>
                                         </tr>
                                         @endforeach
-                                        </tbody>
-                                    </table>
-                                </section>
-                            </div>
+                                    </tbody>
+                                </table>
+                            </section>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    @endsection
+    </div>
+</section>
+@endsection

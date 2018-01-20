@@ -30,7 +30,7 @@ class AdminController extends Controller
 
         User::create([
             'first_name' => request('first_name'),
-            'password' => "password",
+            'password' => bcrypt('password'),
             "last_name" => request('last_name'),
             "nick_name" => request('nick_name'),
             "position" => request('position'),
@@ -46,14 +46,16 @@ class AdminController extends Controller
         return redirect(route('admin.sum'));
     }
 
-    public function delete(User $user){
+    public function delete(User $user)
+    {
         $user->delete();
 
         return redirect()->back();
     }
 
 
-    public function sum(){
+    public function sum()
+    {
         $users = User::with('userType')->get();
 
       //  return UserType::all();
@@ -61,15 +63,18 @@ class AdminController extends Controller
         return view('admin.admin-list', compact('users'));
     }
 
-    public function approve(){
+    public function approve()
+    {
         return view('admin.admin-approve');
     }
 
-    public function permission(){
+    public function permission()
+    {
         return view('admin.admin-permission');
     }
 
-    public function calendar(){
+    public function calendar()
+    {
         return view('admin.admin-calendar');
     }
 }

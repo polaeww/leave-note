@@ -28,7 +28,6 @@ class LeaveController extends Controller
 
     public function store()
     {
-        //return request()->all();
         LeaveNote::create([
             'date_start' => request('date_start'),
             'date_end' => request('date_end'),
@@ -59,18 +58,6 @@ class LeaveController extends Controller
     public function save(LeaveNote $leave)
     {
         $leave->update(request()->all());
-        // $leave = LeaveNote::find(request('leave_id'));
-        // $leave->date_start = request('date_start');
-        // $leave->date_end = request('date_end');
-        // $leave->time_start = request('time_start');
-        // $leave->time_end = request('time_end');
-        // $leave->total_hour = request('total_hour');
-        // $leave->reason = request('reason');
-        // $leave->note = request('note');
-        // $leave->document = request('document');
-
-        // $leave->save();
-//        $leave->update(request()->all());
         return redirect(route('employee.status'));
     }
 

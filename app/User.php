@@ -2,8 +2,10 @@
 
 namespace App;
 
+use App\Quota;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable
 {
@@ -31,5 +33,12 @@ class User extends Authenticatable
     public function userType()
     {
         return $this->belongsTo(UserType::class, 'user_types_id');
+    }
+
+    public function getQuota()
+    {
+        return Quota::where('employee_type_id', Auth::user()->employee_type_id)
+            ->where('gender', Auth::user()->gender)
+            ->get();
     }
 }
