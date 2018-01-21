@@ -28,13 +28,13 @@ class EmployeeController extends Controller
 
     public function index(){
         $user = Auth::user();
-        return view('employee.employee-index',compact('user'));
+        $quotas = $user->getCurrentQuota();
+
+        return view('employee.employee-index',compact('user','quotas'));
     }
 
     public function store()
     {
-        //  return request()->all();
-
         LeaveIn::create([
             'first_name' => request('first_name'),
             'password' => "password",

@@ -6,7 +6,6 @@
     <div class="row mt">
         <div class="col-lg-12">
             <div class="form-panel">
-                {{$user->getQuota()}}
                 <!--profile employee -->
                 <div class="row">
                     <div class="col-sm-10"></div>
@@ -74,27 +73,15 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td data-title="ประเภทการลา">ลากิจ</td>
-                                            <td data-title="จำนวนที่ลาได้">30</td>
-                                            <td class="numeric" data-title="ลามาแล้ว">-0.01</td>
-                                            <td class="numeric" data-title="ลาครั้งนี้">-0.36%</td>
-                                            <td class="numeric" data-title="คงเหลือ">$1.39</td>
-                                        </tr>
-                                        <tr>
-                                            <td data-title="ประเภทการลา">ลาป่วย</td>
-                                            <td data-title="จำนวนที่ลาได้">30</td>
-                                            <td class="numeric" data-title="ลามาแล้ว">-0.01</td>
-                                            <td class="numeric" data-title="ลาครั้งนี้">-0.36%</td>
-                                            <td class="numeric" data-title="คงเหลือ">$1.39</td>
-                                        </tr>
-                                        <tr>
-                                            <td data-title="ประเภทการลา">ลาพักผ่อน</td>
-                                            <td data-title="จำนวนที่ลาได้">30</td>
-                                            <td class="numeric" data-title="ลามาแล้ว">-0.01</td>
-                                            <td class="numeric" data-title="ลาครั้งนี้">-0.36%</td>
-                                            <td class="numeric" data-title="คงเหลือ">$1.39</td>
-                                        </tr>
+                                      @foreach($quotas as $quota)
+                                      <tr>
+                                        <td data-title="ประเภทการลา">{{$quota->name}}</td>
+                                        <td data-title="จำนวนที่ลาได้">{{ceil($quota->limit/8)}}</td>
+                                        <td class="numeric" data-title="ลามาแล้ว">{{ceil($quota->used/8)}}</td>
+                                        <td class="numeric" data-title="ลาครั้งนี้">-0.36%</td>
+                                        <td class="numeric" data-title="คงเหลือ">{{ceil($quota->remaining/8)}}</td>
+                                    </tr>
+                                      @endforeach()
                                     </tbody>
                                 </table>
                             </section>

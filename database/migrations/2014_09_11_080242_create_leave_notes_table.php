@@ -37,7 +37,7 @@ class CreateLeaveNotesTable extends Migration
             $table->boolean('director_approved')->default(false);
 
             $table->integer('leave_type_id')->unsigned();
-            $table->integer('users_id')->unsigned();
+            $table->integer('user_id')->unsigned();
             $table->integer('leave_length_type_id')->unsigned();
             $table->timestamps();
         });
@@ -47,7 +47,7 @@ class CreateLeaveNotesTable extends Migration
         });
 
         Schema::table('leave_notes', function ($table) {
-            $table->foreign('users_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
         });
 
         Schema::table('leave_notes', function ($table) {
