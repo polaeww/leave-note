@@ -27,8 +27,10 @@ class LeaveController extends Controller
         return view('employee.employee-create', compact('user', 'leave_types', 'leave_length_types'));
     }
 
-    public function store()
+    public function store(Request $request)
     {
+
+        // Calculate total hour
         $date_start = Carbon::createFromFormat('Y-m-d', request('date_start'));
         $date_end = Carbon::createFromFormat('Y-m-d', request('date_end'));
 
@@ -43,6 +45,10 @@ class LeaveController extends Controller
             $total_hour = $time_start->diffInHours($time_end);
         }
 
+        $document_path = '';
+        if ($request->hasFile('document')) {
+            $document_path = $request->file('document')->store('document');
+        }
 
         LeaveNote::create([
             'date_start' => request('date_start'),
@@ -52,7 +58,7 @@ class LeaveController extends Controller
             "total_hour" => $total_hour,
             "reason" => request('reason'),
             "note" => request('note'),
-            "document" => request('document'),
+            "document" => $document_path,
             "leave_type_id" => request('leave_type_id'),
             "user_id" => Auth::user()->id,
             "leave_length_type_id" => request('leave_length_type_id'),
