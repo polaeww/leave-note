@@ -66,7 +66,10 @@ class AdminController extends Controller
     }
 
     public function permission(){
-        return view('admin.admin-permission');
+        $pers = Quota::all();
+        $user = Auth::user();
+        return view('admin.admin-permission',compact('pers','user'));
+
     }
 
     public function calendar(){
