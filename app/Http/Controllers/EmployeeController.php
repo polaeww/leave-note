@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\LeaveNote;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -53,7 +54,8 @@ class EmployeeController extends Controller
     }
 
     public function status(){
-        return view('employee.employee-status');
+        $leaves = LeaveNote::all();
+        return view('employee.employee-status',compact('leaves'));
     }
 
     public function roles(){

@@ -24,6 +24,7 @@
                                         </tr>
                                         </thead>
                                         <tbody>
+                                        @foreach($leaves as $leave)
                                         <tr>
                                             <td data-title="วันที่">12/12/2560</td>
                                             <td data-title="เหตุผล">ป่วย</td>
@@ -32,8 +33,9 @@
                                             <td data-title="อนุมัติโดย Leader">ไม่อนุมัติ</td>
                                             <td data-title="อนุมัติโดย Director">ไม่อนุมัติ</td>
                                             <td data-title="เรียกดู" align="center"><button type="button" class="btn btn-info  btn-md ">ดูใบลา</button></td>
-                                            <td data-title="แก้ไขใบลา" align="center"><a href="{{route('leave.edit')}}" ><button type="button" class="btn btn-primary  btn-md ">แก้ไขใบลา</button></a></td>
+                                            <td data-title="แก้ไขใบลา" align="center"><a href="{{route('leave.edit',['leave' => $leave])}}" ><button type="button" class="btn btn-primary  btn-md ">แก้ไขใบลา</button></a></td>
                                         </tr>
+                                        @endforeach
                                         </tbody>
                                     </table>
                                 </section>

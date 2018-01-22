@@ -30,28 +30,41 @@ class LeaveController extends Controller
             "reason" => request('reason'),
             "note" => request('note'),
             "document" => request('document'),
-            "approve_date" => request('approve_date'),
-            "approve_by" => request('approve_by'),
-            "approve_reason" => request('approve_reason'),
+            "admin_approve" => request('admin_approve'),
+            "admin_reason" => request('admin_reason'),
+            "leader_approve" => request('leader_approve'),
+            "leader_reason" => request('leader_reason'),
+            "director_approve" => request('director_approve'),
+            "director_reason" => request('director_reason'),
             "leave_types_id" => 1,
             "users_id" => 1,
             "leave_lengths_id" => 1,
+            "approvements_id" => 1,
         ]);
 
         return redirect(route('leave.create'));
     }
 
-    public function edit()
+    public function edit(LeaveNote $leave)
     {
-        $leave = LeaveNote::leave_notes();
         $user = Auth::user();
         return view('employee.leave-edit',compact('leave','user'));
     }
 
     public function save()
     {
-        $leave = LeaveNote::leave_notes();
-        $leave->update(request()->all());
+        $leave = LeaveNote::find(request('leave_id'));
+        $leave->date_start = request('date_start');
+        $leave->date_end = request('date_end');
+        $leave->time_start = request('time_start');
+        $leave->time_end = request('time_end');
+        $leave->total_hour = request('total_hour');
+        $leave->reason = request('reason');
+        $leave->note = request('note');
+        $leave->document = request('document');
+
+        $leave->save();
+//        $leave->update(request()->all());
         return redirect(route('employee.status'));
     }
 

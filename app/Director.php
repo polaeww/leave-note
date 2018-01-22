@@ -4,12 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class LeaveNote extends Model
+class Director extends Model
 {
-    protected $guarded = [];
-
-
+    //
 }
-
-
-
