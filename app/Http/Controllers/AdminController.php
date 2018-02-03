@@ -17,13 +17,13 @@ class AdminController extends Controller
 
     public function store()
     {
-
         $quota = Quota::create([
-            'sick_leave' => 10,
-            'business_leave' => 10,
-            'vacation_leave' => 10,
-            'maternity_leave' => 10,
-            'ordination_leave' => 10,
+            'label' => request('label'),
+            'sick_leave' => request('sick_leave'),
+            'business_leave' => request('business_leave'),
+            'vacation_leave' =>  request('vacation_leave'),
+            'maternity_leave' =>  request('maternity_leave'),
+            'ordination_leave' =>  request('ordination_leave'),
         ]);
 
       //  return request()->all();
@@ -46,6 +46,8 @@ class AdminController extends Controller
         return redirect(route('admin.sum'));
     }
 
+
+
     public function delete(User $user){
         $user->delete();
 
@@ -65,13 +67,46 @@ class AdminController extends Controller
         return view('admin.admin-approve');
     }
 
+    // permission
     public function permission(){
         $pers = Quota::all();
         $user = Auth::user();
         return view('admin.admin-permission',compact('pers','user'));
 
     }
+    public function createper()
+    {
+        return view('admin.admin-addpermission');
+    }
+    public function storepermission()
+    {
+        Quota::create([
+            'label' => request('label'),
+            'sick_leave' => request('sick_leave'),
+            'business_leave' => request('business_leave'),
+            'vacation_leave' =>  request('vacation_leave'),
+            'maternity_leave' =>  request('maternity_leave'),
+            'ordination_leave' =>  request('ordination_leave'),
+        ]);
 
+        return redirect(route('admin.permission'));
+    }
+
+    public function editpermission(){
+        //$per = Auth::per();
+       // return view('admin.admin-edit-permission',compact('per'));
+        return view('admin.admin-edit-permission');
+
+    }
+    public function savepermission(){
+        //return request()->all();
+//        $user =  Auth::user();
+//        $per->update(request()->all());
+//        return redirect(route('admin.permission'));
+    }
+
+
+    // calendar
     public function calendar(){
         return view('admin.admin-calendar');
     }
