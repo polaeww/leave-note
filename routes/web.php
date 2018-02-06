@@ -31,6 +31,15 @@ Route::get('/admin/approve', 'AdminController@approve')->name('admin.approve');
 Route::get('/admin/permission', 'AdminController@permission')->name('admin.permission');
 Route::get('/admin/calendar', 'AdminController@calendar')->name('admin.calendar');
 
+//permission
+//admin permission
+Route::get('/admin/permission','PermissionController@permission')->name('admin.permission');
+Route::get('/admin/createper','PermissionController@createper')->name('admin.createper');
+Route::post('/admin/create','PermissionController@storepermission')->name('admin.storepermission');
+
+Route::get('/admin/edit-permission','PermissionController@editpermission')->name('admin.editpermission');
+Route::post('/admin/edit-permission','PermissionController@savepermission')->name('admin.savepermission');
+
 //Employee
 Route::get('/employee/edit', 'EmployeeController@edit')->name('employee.edit');
 Route::post('/employee/edit', 'EmployeeController@save')->name('employee.save');
