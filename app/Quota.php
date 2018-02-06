@@ -8,7 +8,4 @@ class Quota extends Model
 {
     protected $guarded = [];
 
-    public static function create($array)
-    {
-    }
 }
