@@ -21,7 +21,7 @@
                                             <th>ลากิจ</th>
                                             <th>ลาพักผ่อน</th>
                                             <th>ลาป่วย</th>
-                                            <th></th>
+                                            <th> </th>
                                         </tr>
                                         </thead>
                                         <tbody>
