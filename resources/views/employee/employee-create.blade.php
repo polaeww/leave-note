@@ -7,7 +7,7 @@
         <div class="col-lg-12">
             <div class="form-panel">
                 <br>
-                <form class="form-horizontal style-form" action="{{route('leave.store')}}" method="post" enctype="multipart/form-data"></form>
+                <form class="form-horizontal style-form" action="{{route('leave.store')}}" method="post" enctype="multipart/form-data">
                 {{csrf_field()}}
                 <div class="form-group">
                     <div class="col-sm-1"></div>

@@ -4,11 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Director;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DirectorController extends Controller
 {
     public function approve(){
         return view('director.director-approve');
+    }
+
+    public function approvement(){
+        $user = Auth::user();
+        return view('director.director-approvement',compact('user'));
     }
     /**
      * Display a listing of the resource.

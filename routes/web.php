@@ -28,6 +28,8 @@ Route::get('/admin', 'AdminController@sum')->name('admin.sum');
 Route::get('/admin/employee/{user}', 'AdminController@delete')->name('admin.delete');
 
 Route::get('/admin/approve', 'AdminController@approve')->name('admin.approve');
+Route::get('/admin/approvement', 'AdminController@approvement')->name('admin.approvement');
+
 Route::get('/admin/permission', 'AdminController@permission')->name('admin.permission');
 Route::get('/admin/calendar', 'AdminController@calendar')->name('admin.calendar');
 
@@ -58,6 +60,8 @@ Route::get('/employee/roles', 'EmployeeController@roles')->name('employee.roles'
 
 //leader
 Route::get('/leader/approve', 'LeaderController@approve')->name('leader.approve');
+Route::get('/leader/approvement', 'LeaderController@approvement')->name('leader.approvement');
 
 //director
 Route::get('/director/approve', 'DirectorController@approve')->name('director.approve');
+Route::get('/director/approvement', 'DirectorController@approvement')->name('director.approvement');

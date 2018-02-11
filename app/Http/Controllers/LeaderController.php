@@ -4,11 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Leader;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LeaderController extends Controller
 {
     public function approve(){
         return view('leader.leader-approve');
+    }
+
+    public function approvement(){
+        $user = Auth::user();
+        return view('leader.leader-approvement',compact('user'));
     }
     /**
      * Display a listing of the resource.

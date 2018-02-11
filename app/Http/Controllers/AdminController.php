@@ -63,15 +63,23 @@ class AdminController extends Controller
         return view('admin.admin-list', compact('users'));
     }
 
+//    approve
     public function approve()
     {
         return view('admin.admin-approve');
     }
 
+    public function approvement(){
+        $user = Auth::user();
+        return view('admin.admin-approvement',compact('user'));
+    }
+
+//    permission
     public function permission()
     {
         return view('admin.admin-permission');
     }
+
 
     public function calendar()
     {
