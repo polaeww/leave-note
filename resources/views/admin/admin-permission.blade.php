@@ -19,7 +19,9 @@
                                     <table class="table table-bordered table-striped table-condensed cf">
                                         <thead class="cf">
                                         <tr>
-                                            <th>ชื่อสิทธิ์</th>
+                                            <th>สำหรับพนักงาน</th>
+                                            <th>อายุการทำงาน</th>
+                                            <th>เพศ</th>
                                             <th>ลาป่วย</th>
                                             <th>ลากิจ</th>
                                             <th>ลาพักผ่อน</th>
@@ -33,7 +35,9 @@
                                         <tbody>
                                        @foreach($pers as $per)
                                             <tr>
-                                                <td>{{$per->label}}</td>
+                                                <td>{{$per->employee_type_id}}</td>
+                                                <td>{{$per->worked_year}}</td>
+                                                <td>{{$per->gender}}</td>
                                                 <td>{{$per->sick_leave}}</td>
                                                 <td>{{$per->business_leave}}</td>
                                                 <td>{{$per->vacation_leave}}</td>

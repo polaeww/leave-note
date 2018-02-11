@@ -13,9 +13,30 @@
                         {{csrf_field()}}
                         <div class="form-group">
                             <div class="col-sm-1"></div>
-                            <label class="col-sm-1 col-sm-1 control-label">ชื่อสิทธิ์ :</label>
+                            <label class="col-sm-1 col-sm-1 control-label">Employee Id :</label>
                             <div class="col-sm-4">
-                                <input type="text" name="label" class="form-control">
+
+                                {{--<select>--}}
+                                {{--( @foreach ($employee_types as $employee_type)--}}
+                                    {{--<option value="$employee_type_id->id">{{$employee_type_id->name}}</option>--}}
+                                    {{--<option value="$employee_type_id->id">{{$employee_type_id->name}}</option>--}}
+                                {{--@endforeach--}}
+                                {{--</select>--}}
+
+                                <input type="text" name="employee_type_id" class="form-control">
+                            </div>
+                            <label class="col-sm-1 col-sm-1 control-label">worked year:</label>
+                            <div class="col-sm-4">
+                                <input type="text" name="worked_year" class="form-control">
+                            </div>
+                            <div class="col-sm-1 col-sm-1"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-1"></div>
+                            <label class="col-sm-1 col-sm-1 control-label">gender :</label>
+                            <div class="col-sm-4">
+                                <input type="text" name="gender" class="form-control">
                             </div>
                             <label class="col-sm-1 col-sm-1 control-label">ลาป่วย :</label>
                             <div class="col-sm-4">
