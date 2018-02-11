@@ -49,13 +49,25 @@ class PermissionController extends Controller
        // return Quota::all();
     }
 
-    public function editpermission(){
+    public function editpermission(Quota $per){
         //$per = Auth::per();
         // return view('admin.admin-edit-permission',compact('per'));
-        return view('admin.admin-edit-permission');
+        return view('admin.admin-edit-permission',compact('per'));
 
     }
-    public function savepermission(){
+    public function savepermission(Quota $per){
+        $per->update([
+            'employee_type_id' => request('employee_type_id'),
+            'worked_year' => request('worked_year'),
+            'gender' => request('gender'),
+            'sick_leave' => request('sick_leave'),
+            'business_leave' =>request('business_leave'),
+            'vacation_leave' => request('vacation_leave'),
+            'maternity_leave' =>  request('maternity_leave'),
+            'ordination_leave' =>   request('ordination_leave'),
+        ]);
+
+        return redirect(route('admin.permission'));
         //return request()->all();
 //        $user =  Auth::user();
 //        $per->update(request()->all());

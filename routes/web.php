@@ -39,8 +39,8 @@ Route::get('/admin/permission','PermissionController@permission')->name('admin.p
 Route::get('/admin/createper','PermissionController@createper')->name('admin.createper');
 Route::post('/admin/create','PermissionController@storepermission')->name('admin.storepermission');
 
-Route::get('/admin/edit-permission','PermissionController@editpermission')->name('admin.editpermission');
-Route::post('/admin/edit-permission','PermissionController@savepermission')->name('admin.savepermission');
+Route::get('/admin/edit-permission/{per}','PermissionController@editpermission')->name('admin.editpermission');
+Route::post('/admin/edit-permission/{per}','PermissionController@savepermission')->name('admin.savepermission');
 
 //Employee
 Route::get('/employee/edit', 'EmployeeController@edit')->name('employee.edit');
