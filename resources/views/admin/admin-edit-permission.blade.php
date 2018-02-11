@@ -16,7 +16,7 @@
                             <div class="col-sm-1"></div>
                             <label class="col-sm-2 col-sm-2 control-label">Employee Type </label>
                             <div class="col-sm-3">
-                                <input type="text" class="form-control" value="{{$per->employee_type_id}}" name="employee_type_id">
+                                <input type="text" class="form-control" value="{{$per->employee_type->name}}" name="employee_type_id">
                             </div>
                             <label class="col-sm-2 col-sm-2 control-label">Worked Year:</label>
                             <div class="col-sm-3">

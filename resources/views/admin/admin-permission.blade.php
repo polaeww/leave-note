@@ -35,7 +35,7 @@
                                         <tbody>
                                        @foreach($pers as $per)
                                             <tr>
-                                                <td>{{$per->employee_type_id}}</td>
+                                                <td>{{$per->employee_type->name}}</td>
                                                 <td>{{$per->worked_year}}</td>
                                                 <td>{{$per->gender}}</td>
                                                 <td>{{$per->sick_leave}}</td>
