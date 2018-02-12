@@ -56,8 +56,10 @@ class PermissionController extends Controller
 
     }
     public function savepermission(Quota $per){
+
+//        dd(request('per'));
         $per->update([
-            'employee_type_id' => request('employee_type_id'),
+            'employee_type_id' => $per->employee_type->id,
             'worked_year' => request('worked_year'),
             'gender' => request('gender'),
             'sick_leave' => request('sick_leave'),

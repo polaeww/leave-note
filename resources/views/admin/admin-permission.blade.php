@@ -10,7 +10,7 @@
                         <div class="row">
                             <div class="col-sm-10"></div>
                             <div class="col-sm-2">
-                                <a href="{{ route('admin.createper') }}"><button type="button" class="btn btn-success">NEW+</button></a>
+                                <a href="{{ route('admin.createper') }}"><button type="button" class="btn btn-success">กำหนดสิทธิ์ใหม่</button></a>
                             </div>
                         </div>
                         <div class="col-lg-12">

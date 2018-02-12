@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
     <section class="wrapper">
-        <br><h3><i class="fa fa-angle-right"></i> เพิ่มพนักงาน</h3>
+        <br><h3><i class="fa fa-angle-right"></i> กำหนดสิทธิ์</h3>
 
 
         <div class="row mt">
@@ -13,67 +13,54 @@
                         {{csrf_field()}}
                         <div class="form-group">
                             <div class="col-sm-1"></div>
-                            <label class="col-sm-1 col-sm-1 control-label">Employee Id :</label>
-                            <div class="col-sm-4">
-
-                                {{--<select>--}}
-                                {{--( @foreach ($employee_types as $employee_type)--}}
-                                    {{--<option value="$employee_type_id->id">{{$employee_type_id->name}}</option>--}}
-                                    {{--<option value="$employee_type_id->id">{{$employee_type_id->name}}</option>--}}
-                                {{--@endforeach--}}
-                                {{--</select>--}}
-
-                                <input type="text" name="employee_type_id" class="form-control">
+                            <label class="col-sm-2 col-sm-2 control-label">ประเภทพนักงาน:</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" name="employee_type_id">
                             </div>
-                            <label class="col-sm-1 col-sm-1 control-label">worked year:</label>
-                            <div class="col-sm-4">
-                                <input type="text" name="worked_year" class="form-control">
+                            <label class="col-sm-2 col-sm-2 control-label">อายุการทำงาน:</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control"  name="worked_year">
                             </div>
                             <div class="col-sm-1 col-sm-1"></div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-sm-1"></div>
-                            <label class="col-sm-1 col-sm-1 control-label">gender :</label>
-                            <div class="col-sm-4">
-                                <input type="text" name="gender" class="form-control">
+                            <label class="col-sm-2 col-sm-2 control-label">เพศ:</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control"  name="gender">
                             </div>
-                            <label class="col-sm-1 col-sm-1 control-label">ลาป่วย :</label>
-                            <div class="col-sm-4">
-                                <input type="text" name="sick_leave" class="form-control">
+                            <label class="col-sm-2 col-sm-2 control-label">ลาป่วย</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control"  name="sick_leave">
                             </div>
                             <div class="col-sm-1 col-sm-1"></div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-sm-1"></div>
-                            <label class="col-sm-1 col-sm-1 control-label">ลากิจ :</label>
-                            <div class="col-sm-4">
-                                <input type="text" name="business_leave" class="form-control">
+                            <label class="col-sm-2 col-sm-2 control-label">ลากิจ</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control"  name="business_leave">
                             </div>
+                            <label class="col-sm-2 col-sm-2 control-label">ลาพักผ่อน</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" name="vacation_leave">
+                            </div>
+                            <div class="col-sm-1 col-sm-1"></div>
                         </div>
-
                         <div class="form-group">
                             <div class="col-sm-1"></div>
-                            <label class="col-sm-1 col-sm-1 control-label">ลาพักผ่อน:</label>
-                            <div class="col-sm-4">
-                                <input type="text" name="vacation_leave" class="form-control">
+                            <label class="col-sm-2 col-sm-2 control-label">ลาบวช</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control"  name="maternity_leave">
                             </div>
-
-                            <label class="col-sm-1 col-sm-1 control-label">ลาบวช:</label>
-                            <div class="col-sm-4">
-                                <input type="text" name="maternity_leave" class="form-control">
+                            <label class="col-sm-2 col-sm-2 control-label">ลาคลอด</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control"  name="ordination_leave">
                             </div>
-                            <div class="col-sm-1"></div>
+                            <div class="col-sm-1 col-sm-1"></div>
                         </div>
-
-                        <div class="form-group">
-                            <div class="col-sm-1"></div>
-                            <label class="col-sm-1 col-sm-1 control-label">ลาคลอด :</label>
-                            <div class="col-sm-4">
-                                <input type="text" name="ordination_leave" class="form-control">
-                            </div>
-
 
 
                             <div class="row">

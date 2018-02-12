@@ -14,11 +14,11 @@
                     <!--ชืื่อ-->
                         <div class="form-group">
                             <div class="col-sm-1"></div>
-                            <label class="col-sm-2 col-sm-2 control-label">Employee Type </label>
+                            <label class="col-sm-2 col-sm-2 control-label">ประเภทพนักงาน: </label>
                             <div class="col-sm-3">
                                 <input type="text" class="form-control" value="{{$per->employee_type->name}}" name="employee_type_id">
                             </div>
-                            <label class="col-sm-2 col-sm-2 control-label">Worked Year:</label>
+                            <label class="col-sm-2 col-sm-2 control-label">อายุการทำงาน:</label>
                             <div class="col-sm-3">
                                 <input type="text" class="form-control" value="{{$per->worked_year}}" name="worked_year">
                             </div>
@@ -27,7 +27,7 @@
 
                         <div class="form-group">
                             <div class="col-sm-1"></div>
-                            <label class="col-sm-2 col-sm-2 control-label">Gender:</label>
+                            <label class="col-sm-2 col-sm-2 control-label">เพศ:</label>
                             <div class="col-sm-3">
                                 <input type="text" class="form-control" value="{{$per->gender}}" name="gender">
                             </div>
